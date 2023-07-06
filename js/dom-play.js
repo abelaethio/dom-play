@@ -1,4 +1,5 @@
-alert("Hi from Dom play");
+
+//alert("Hi from Dom play");
 
 /*
 
@@ -37,12 +38,29 @@ function myalert(){
     alert("I'm clicked!");
 }
 
-const spans = document.querySelectorAll("#play span")
+function highlightActor(actor){
+    //alert("The current actor is: " + actor);
+    for(const mySpan of spans){
+        if(actor==mySpan.datset.actor){//current actor
+            mySpan.style.backgroundColor='blue';
+        }else{//other actor
+            mySpan.style.backgroundColor='white';
+
+        }
+    }
+
+}
+
+const spans = document.querySelectorAll("#play span");
 
 console.log(spans);
 
 for(const mySpan of spans){
-    mySpan.addEventListener("click,myAlert");
+    //mySpan.addEventListener("click",myAlert");
+
+    mySpan.addEventListner("click",function(ev){
+        highlightActor(mySpan.dataset.actor);
+    });
 
 }
 
